@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spice Garden — Table Ordering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><div class="wrap bar">
+  <a class="logo" href="#home"><span aria-hidden="true">🌿</span> Spice Garden</a>
+  <nav><a href="#home">Home</a><a href="#menu">Menu</a><a href="#rack">Cold drinks</a><a href="#contact">Contact</a></nav>
+  <span class="badge" id="tableBadge">Select table</span>
+  <button class="cartbtn" id="openCart" aria-label="Open cart">🛒 Cart <b id="count">0</b></button>
+</div></header>
+
+<main>
+<section class="hero" id="home"><div class="wrap">
+  <div>
+    <h1>Order from your table</h1>
+    <p>Chai, snacks, roti, full meals and more. Pick your items and your order goes straight to our kitchen and billing counter.</p>
+    <a class="btn p" href="#menu">View menu</a><a class="btn s" href="#menu">Order now</a>
+  </div>
+  <div class="art" aria-hidden="true"><img id="h1" alt=""><img id="h2" alt=""><img id="h3" alt=""></div>
+</div></section>
+
+<div class="wrap info">
+  <div><strong>Open daily</strong>10:00 AM – 11:00 PM</div>
+  <div><strong>Dine-in</strong>Scan the QR on your table</div>
+  <div><strong>Need help?</strong>Ask our staff</div>
+</div>
+
+<section class="rack" id="rack"><div class="wrap"><div class="rack-box">
+  <img src="images/cold-drink-rack.jpg" alt="Shelves of chilled bottled soft drinks">
+  <div class="rack-txt"><h2>Cold drink rack</h2><p>Chilled sodas and water, brought to your table.</p><button class="btn p" id="rackBtn">Order a cold drink</button></div>
+</div></div></section>
+
+<section class="menu" id="menu"><div class="wrap">
+  <h2>Our menu</h2>
+  <input class="search" id="search" type="search" placeholder="Search chai, samosa, roti, paneer…" aria-label="Search food">
+  <div class="chips" id="chips" role="group" aria-label="Categories"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+</main>
+
+<footer id="contact"><div class="wrap">
+  <div><h3>Spice Garden Restaurant</h3><p>Delicious food made with love.<br>10:00 AM – 11:00 PM</p></div>
+  <div><p>Orders go to the kitchen and billing counter.</p><p>© 2026 Spice Garden. All rights reserved.</p></div>
+</div></footer>
+
+<a class="fab" id="fab" href="#" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+
+<div class="ov" id="cartOv"><div class="drawer" role="dialog" aria-modal="true" aria-label="Your cart">
+  <div class="dh"><h2>Your cart</h2><button class="x" data-close aria-label="Close">✕</button></div>
+  <div class="db" id="cartBody"></div>
+  <div class="df"><div class="tot"><span>Total</span><span id="cartTotal">₹0</span></div>
+  <button class="btn p" style="width:100%" id="toCheckout">Proceed to checkout</button></div>
+</div></div>
+
+<div class="ov" id="coOv"><div class="drawer" role="dialog" aria-modal="true" aria-label="Checkout">
+  <div class="dh"><h2>Confirm order</h2><button class="x" data-close aria-label="Close">✕</button></div>
+  <div class="db">
+    <label for="table">Table number *</label><select class="in" id="table"></select><div class="err" id="eTable"></div>
+    <label for="name">Name (optional)</label><input class="in" id="name" autocomplete="name">
+    <label for="mobile">Mobile number (optional)</label><input class="in" id="mobile" inputmode="numeric" maxlength="10" autocomplete="tel-national"><div class="err" id="eMobile"></div>
+    <label for="note">Special note for the kitchen</label><input class="in" id="note" placeholder="e.g. Less spicy, no onion">
+    <div class="sum" id="sum"></div>
+    <p class="tip">Your order opens in WhatsApp. Press Send there so the kitchen gets it.</p>
+  </div>
+  <div class="df"><button class="btn wa" id="sendWa">Send order to kitchen</button></div>
+</div></div>
+
+<div class="ov" id="doneOv"><div class="drawer" role="dialog" aria-modal="true" aria-label="Order sent">
+  <div class="done"><div class="big" aria-hidden="true">✅</div><h2>Order ready</h2>
+  <p id="doneTxt"></p>
+  <button class="btn wa" id="billBtn" hidden>Send bill details to billing counter</button>
+  <button class="btn p" data-close>Done</button></div>
+</div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="js/menu.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/checkout.js"></script>
+</body>
+</html>

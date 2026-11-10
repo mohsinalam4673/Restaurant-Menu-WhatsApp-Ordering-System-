@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Table QR links</title>
+<style>body{font:16px system-ui,sans-serif;max-width:720px;margin:24px auto;padding:0 16px}input{padding:8px;margin:4px 0;width:100%}li{margin:6px 0;word-break:break-all}</style></head>
+<body><h1>Table links for QR codes</h1>
+<p>Enter your live website address and number of tables. Paste each link into any QR generator and print one QR per table.</p>
+<label>Website address<input id="base"></label><label>Number of tables<input id="n" type="number" min="1" value="20"></label>
+<ol id="out"></ol>
+<script>
+const base=document.getElementById("base"),n=document.getElementById("n"),out=document.getElementById("out");
+base.value=location.href.replace(/tables\.html.*$/,"");
+function draw(){out.innerHTML="";for(let i=1;i<=+n.value;i++){const li=document.createElement("li");li.textContent="Table "+i+": "+base.value.replace(/\/?$/,"/")+"?table="+i;out.appendChild(li)}}
+base.oninput=n.oninput=draw;draw();
+</script></body></html>
